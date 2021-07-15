@@ -57,4 +57,5 @@ void loop(){
     delay(5000); // 等待5s
     DEBUG_SERIAL.println("Gripper Open\n"); // 打印日志
     gripper.open();
+    delay(5000); // 等待5s
 }
