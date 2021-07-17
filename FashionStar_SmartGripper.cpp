@@ -9,6 +9,10 @@
 #include "FashionStar_SmartGripper.h"
 
 // 夹具
+FSGP_Gripper::FSGP_Gripper(){
+    
+}
+// 夹具
 FSGP_Gripper::FSGP_Gripper(FSUS_Servo *servo, float angleGripperOpen, float angleGripperClose)
 {   
     // 参数赋值
@@ -37,6 +41,21 @@ bool FSGP_Gripper::init()
     // this->open();
     
     return true;
+}
+
+bool FSGP_Gripper::init(FSUS_Servo *servo, float angleGripperOpen, float angleGripperClose){
+    // 参数赋值
+    this->servo = servo;                          // 舵机指针初始化
+    this->angleGripperOpen = angleGripperOpen;    // 爪子开启的角度
+    this->angleGripperClose = angleGripperClose;  // 爪子闭合的角度
+    // 默认参数设置
+    this->maxPower = FSGP_DEFAULT_POWER_MW;
+    this->interval = FSGP_DEFAULT_INTERVAL;
+    this->curPower = 0;
+    // 设置状态位
+    this->status = FSGP_STATUS_OPEN;
+    
+    this->init();
 }
 
 // 设置电机的最大功率

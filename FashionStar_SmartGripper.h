@@ -28,10 +28,13 @@
 /* 智能夹具 */
 class FSGP_Gripper{
 public:
+    // 夹具初始化
+    FSGP_Gripper();
     // 夹具
     FSGP_Gripper(FSUS_Servo *servo, float angleGripperOpen, float angleGripperClose);
     // 初始化舵机
     bool init();
+    bool init(FSUS_Servo *servo, float angleGripperOpen, float angleGripperClose);
     // 设置电机的最大功率
     void setMaxPower(uint16_t power);
     // 爪子打开
